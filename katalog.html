@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Produk | Naystore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-nay.png" alt="Logo Naystore">
+      <span>Naystore</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="katalog.html" class="active">Katalog</a></li>
+      <li><a href="keranjang.html">Keranjang</a></li>
+      <li><a href="pembayaran.html">Pembayaran</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+    </ul>
+    <a href="keranjang.html" class="cart-badge">🛒 Keranjang (<span id="nav-cart-count">0</span>)</a>
+  </nav>
+
+  <main class="container">
+    <div class="section-title">
+      <h2>Katalog Layanan Cetak</h2>
+      <p>Pilih produk percetakan sesuai kebutuhanmu — bisa masuk keranjang (bayar QRIS) atau pesan langsung via WhatsApp</p>
+    </div>
+
+    <!-- Filter Kategori -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProduk('semua', this)">Semua Produk</button>
+      <button class="filter-btn" onclick="filterProduk('stiker', this)">Stiker & Label</button>
+      <button class="filter-btn" onclick="filterProduk('banner', this)">Banner & Spanduk</button>
+      <button class="filter-btn" onclick="filterProduk('kertas', this)">Kartu & Brosur</button>
+      <button class="filter-btn" onclick="filterProduk('merch', this)">Merch & Kemasan</button>
+    </div>
+
+    <!-- Daftar Produk (Total 12 Produk Lengkap dengan 2 Tombol) -->
+    <div class="grid-3" id="product-list">
+      
+      <!-- KATEGORI 1: STIKER & LABEL -->
+      <div class="card product-item" data-category="stiker">
+        <div class="product-img-box">
+          <img src="assets/stiker-vinyl.jpg" alt="Stiker Vinyl A3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Stiker & Label</span>
+        <h3 class="product-title">Stiker Vinyl A3</h3>
+        <p class="product-desc">Cocok untuk label kemasan makanan & minuman, sudah termasuk cutting kiss-cut rapi.</p>
+        <div class="product-price">Rp 20.000 <span>/ lembar A3+</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Stiker Vinyl A3', 20000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Stiker Vinyl A3', 20000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="stiker">
+        <div class="product-img-box">
+          <img src="assets/stiker-transparan.jpg" alt="Stiker Transparan Anti Air A3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Stiker & Label</span>
+        <h3 class="product-title">Stiker Transparan Anti Air A3</h3>
+        <p class="product-desc">Bahan bening tahan air & kulkas, cocok untuk botol minuman kekinian atau skincare.</p>
+        <div class="product-price">Rp 18.000 <span>/ lembar A3+</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Stiker Transparan Anti Air A3', 18000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Stiker Transparan Anti Air A3', 18000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="stiker">
+        <div class="product-img-box">
+          <img src="assets/stiker-segel.jpg" alt="Stiker Segel Kemasan Chromo A3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Stiker & Label</span>
+        <h3 class="product-title">Stiker Segel Kemasan Chromo A3</h3>
+        <p class="product-desc">Desain memanjang untuk segel tutup toples kue kering atau box hampers agar lebih eksklusif.</p>
+        <div class="product-price">Rp 13.500 <span>/ lembar A3+</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Stiker Segel Kemasan Chromo A3', 13500)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Stiker Segel Kemasan Chromo A3', 13500)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <!-- KATEGORI 2: BANNER & SPANDUK -->
+      <div class="card product-item" data-category="banner">
+        <div class="product-img-box">
+          <img src="assets/spanduk-flexi.jpg" alt="Spanduk Flexi Per-Meter" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Banner & Spanduk</span>
+        <h3 class="product-title">Spanduk Flexi Per-Meter</h3>
+        <p class="product-desc">Tahan cuaca dan air, cetak tajam, gratis finishing mata ayam tiap sudut.</p>
+        <div class="product-price">Rp 23.000 <span>/ meter</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Spanduk Flexi Per-Meter', 23000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Spanduk Flexi Per-Meter', 23000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="banner">
+        <div class="product-img-box">
+          <img src="assets/x-banner.jpg" alt="X-Banner Paket Lengkap" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Banner & Spanduk</span>
+        <h3 class="product-title">X-Banner Paket Lengkap</h3>
+        <p class="product-desc">Ukuran 60x160 cm sudah termasuk tiang penyangga X-Banner dan tas sarung hitam.</p>
+        <div class="product-price">Rp 75.000 <span>/ set</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('X-Banner Paket Lengkap', 75000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('X-Banner Paket Lengkap', 75000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="banner">
+        <div class="product-img-box">
+          <img src="assets/rollup-banner.jpg" alt="Roll Up Banner Aluminium" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Banner & Spanduk</span>
+        <h3 class="product-title">Roll Up Banner Aluminium</h3>
+        <p class="product-desc">Tampilan lebih kokoh & mewah untuk pameran, seminar, atau depan toko ukuran 60x160 cm.</p>
+        <div class="product-price">Rp 165.000 <span>/ set</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Roll Up Banner Aluminium', 165000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Roll Up Banner Aluminium', 165000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <!-- KATEGORI 3: KARTU & BROSUR -->
+      <div class="card product-item" data-category="kertas">
+        <div class="product-img-box">
+          <img src="assets/kartu-nama.jpg" alt="Kartu Nama Art Carton 260gr" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Kartu & Brosur</span>
+        <h3 class="product-title">Kartu Nama Art Carton 260gr</h3>
+        <p class="product-desc">Isi 100 pcs per box, tekstur halus dan tebal, tersedia opsi laminasi doff/glossy.</p>
+        <div class="product-price">Rp 35.000 <span>/ box (100 pcs)</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Kartu Nama Art Carton 260gr', 35000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Kartu Nama Art Carton 260gr', 35000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="kertas">
+        <div class="product-img-box">
+          <img src="assets/brosur-a5.jpg" alt="Brosur Undangan A5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Kartu & Brosur</span>
+        <h3 class="product-title">Brosur Undangan A5</h3>
+        <p class="product-desc">Bahan Art Paper 120gr mengkilap, isi 200 lembar, cocok untuk undangan atau brosur promosi.</p>
+        <div class="product-price">Rp 150.000 <span>/ 200 lembar</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Brosur Undangan A5', 150000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Brosur Undangan A5', 150000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="kertas">
+        <div class="product-img-box">
+          <img src="assets/thankyou-card.jpg" alt="Thank You Card Custom" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Kartu & Brosur</span>
+        <h3 class="product-title">Thank You Card Custom</h3>
+        <p class="product-desc">Kartu ucapan terima kasih untuk paket olshop ukuran 9x6 cm, cetak 2 sisi penuh warna.</p>
+        <div class="product-price">Rp 20.000 <span>/ 50 pcs</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Thank You Card Custom', 20000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Thank You Card Custom', 20000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <!-- KATEGORI 4: MERCH & KEMASAN -->
+      <div class="card product-item" data-category="merch">
+        <div class="product-img-box">
+          <img src="assets/paper-bag.jpg" alt="Paper Bag Kraft Custom" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Merch & Kemasan</span>
+        <h3 class="product-title">Paper Bag Kraft Custom</h3>
+        <p class="product-desc">Tas kertas ramah lingkungan dengan tali kuat, sablon/cetak logo brand kamu sendiri.</p>
+        <div class="product-price">Rp 45.000 <span>/ 12 pcs</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Paper Bag Kraft Custom', 45000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Paper Bag Kraft Custom', 45000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="merch">
+        <div class="product-img-box">
+          <img src="assets/mug-custom.jpg" alt="Mug Keramik Custom Print" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Merch & Kemasan</span>
+        <h3 class="product-title">Mug Keramik Custom Print</h3>
+        <p class="product-desc">Mug putih SNI kualitas premium, hasil cetak tajam & awet untuk kado atau souvenir acara.</p>
+        <div class="product-price">Rp 28.000 <span>/ pcs</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Mug Keramik Custom Print', 28000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Mug Keramik Custom Print', 28000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+      <div class="card product-item" data-category="merch">
+        <div class="product-img-box">
+          <img src="assets/hang-tag.jpg" alt="Hang Tag Label Baju / Hijab" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+        </div>
+        <span class="product-cat">Merch & Kemasan</span>
+        <h3 class="product-title">Hang Tag Label Baju / Hijab</h3>
+        <p class="product-desc">Bahan tebal Art Carton 310gr + laminasi doff, sudah dilubangi rapi untuk label produk.</p>
+        <div class="product-price">Rp 30.000 <span>/ 100 pcs</span></div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button class="btn btn-primary" style="width: 100%;" onclick="tambahKeranjang('Hang Tag Label Baju / Hijab', 30000)">🛒 + Tambah ke Keranjang</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="pesanViaWA('Hang Tag Label Baju / Hijab', 30000)">💬 Pesan Langsung via WA</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Thanks For Support My Business — <strong>@Nayhijrahstore</strong></p>
+    <p style="margin-top: 4px; font-size: 0.8rem;">&copy; 2026 Naystore Printing. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const NOMOR_WA_ADMIN = "6285640766792";
+
+    function filterProduk(kategori, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.product-item').forEach(item => {
+        if (kategori === 'semua' || item.dataset.category === kategori) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function updateBadge() {
+      const cart = JSON.parse(localStorage.getItem('naystore_cart')) || [];
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('nav-cart-count').innerText = totalQty;
+    }
+
+    function tambahKeranjang(nama, harga) {
+      let cart = JSON.parse(localStorage.getItem('naystore_cart')) || [];
+      const index = cart.findIndex(item => item.nama === nama);
+      if (index > -1) {
+        cart[index].qty += 1;
+      } else {
+        cart.push({ nama: nama, harga: harga, qty: 1 });
+      }
+      localStorage.setItem('naystore_cart', JSON.stringify(cart));
+      updateBadge();
+      alert('✅ "' + nama + '" berhasil masuk ke keranjang!');
+    }
+
+    function pesanViaWA(nama, harga) {
+      const hargaFormat = 'Rp ' + harga.toLocaleString('id-ID');
+      const pesan = `Halo Admin Naystore! Saya mau pesan layanan cetak:\n\n` +
+                    `• *Produk:* ${nama}\n` +
+                    `• *Harga:* ${hargaFormat}\n` +
+                    `• *Jumlah:* 1\n\n` +
+                    `Mohon info untuk pengiriman file desain dan pembayarannya ya. Terima kasih!`;
+
+      const urlWA = `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesan)}`;
+      window.open(urlWA, '_blank');
+    }
+
+    updateBadge();
+  </script>
+
+</body>
+</html>
